@@ -2,14 +2,14 @@
   <div class="container mx-auto px-4 py-6">
     <div class="flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <i class="fas fa-chart-network text-indigo-500 text-2xl"></i>
+        <i class="fas fa-users text-indigo-500 text-2xl"></i>
         <h1 class="text-2xl font-bold text-gray-800">{{appName}}</h1>
       </div>
       <nav class="hidden md:flex space-x-6">
         <a routerLink="/" class="text-gray-600 hover:text-indigo-500 transition">Home</a>
-        <a routerLink="/matriz" class="text-gray-600 hover:text-indigo-500 transition">Matriz</a>
-        <a routerLink="/sankey" class="text-gray-600 hover:text-indigo-500 transition">Sankey</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-500 transition">Historico Sankey</a>
+        <a routerLink="/sindicatos" class="text-gray-600 hover:text-indigo-500 transition">Sindicatos</a>
+        <a routerLink="/empresas" class="text-gray-600 hover:text-indigo-500 transition">Empresas</a>
+        <a routerLink="/cartas" class="text-gray-600 hover:text-indigo-500 transition">Cartas de Oposição</a>
       </nav>
       <button class="md:hidden text-gray-600" (click)="toggleMenu()">
         <i class="fas fa-bars text-xl"></i>
@@ -17,9 +17,9 @@
     </div>
     <nav *ngIf="isMenuOpen" class="md:hidden flex flex-col space-y-2 mt-4">
       <a routerLink="/" class="text-gray-600 hover:text-indigo-500 transition">Home</a>
-      <a routerLink="/matriz" class="text-gray-600 hover:text-indigo-500 transition">Matriz</a>
-      <a routerLink="/sankey" class="text-gray-600 hover:text-indigo-500 transition">Sankey</a>
-      <a href="#" class="text-gray-600 hover:text-indigo-500 transition">Historico Sankey</a>
+      <a routerLink="/sindicatos" class="text-gray-600 hover:text-indigo-500 transition">Sindicatos</a>
+      <a routerLink="/empresas" class="text-gray-600 hover:text-indigo-500 transition">Empresas</a>
+      <a routerLink="/cartas" class="text-gray-600 hover:text-indigo-500 transition">Cartas de Oposição</a>
     </nav>
   </div>
 </header>

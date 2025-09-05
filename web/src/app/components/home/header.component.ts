@@ -4,14 +4,14 @@ import { GlobalService } from 'src/app/service/global.service';
 @Component({
   selector: 'home-header',
   templateUrl: './header.component.html',
-//   styleUrls: ['./header.component.css']
+  // styleUrls: ['./header.component.css']
 })
-export class HomeHeaderComponent {
+export class HeaderComponent {
   isMenuOpen = false;
   appName: string;
 
   constructor(private globalService: GlobalService) {
-        this.appName = globalService.appName;
+    this.appName = 'Gerenciamento de Oposição Sindical';
     // Subscribe for dynamic updates
     this.globalService.appName$.subscribe(name => {
       this.appName = name;
