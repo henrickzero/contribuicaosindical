@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankey Chart - Frentes → Tasks → Pessoas</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['sankey']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'From');
+            data.addColumn('string', 'To');
+            data.addColumn('number', 'Weight');
+
+            // Data: Flow from Frentes to Tasks, then Tasks to Pessoas
+            data.addRows([
+                // Frentes to Tasks
+                ['Migração', 'Tarefas Migração', 10],
+                ['RM', 'Tarefas RM', 8],
+                ['Adm Digital', 'Tarefas Adm Digital', 12],
+                ['Afferolab (Capacitação)', 'Tarefas Afferolab', 6],
+                ['APP Meu RH (Portal do Empregado)', 'Tarefas APP Meu RH', 10],
+                ['Protheus', 'Tarefas Protheus', 8],
+                ['GoodData', 'Tarefas GoodData', 4],
+                ['Portal de Compras', 'Tarefas Portal de Compras', 10],
+                ['Transmite', 'Tarefas Transmite', 6],
+                ['Clock In (Web e Mobile)', 'Tarefas Clock In', 8],
+                ['CRM', 'Tarefas CRM', 12],
+                ['Prophix', 'Tarefas Prophix', 6],
+                ['ESG - Responsabilidade Socio Ambiental', 'Tarefas ESG', 4],
+                ['Feedz', 'Tarefas Feedz', 6],
+                ['Quirons', 'Tarefas Quirons', 8],
+                ['Fluig', 'Tarefas Fluig', 10],
+                ['Sustentação', 'Tarefas Sustentação', 12],
+                ['Atendimento', 'Tarefas Atendimento', 8],
+                // Tasks to Pessoas (weight based on people involved)
+                ['Tarefas Migração', 'Pessoas Migração', 5],
+                ['Tarefas RM', 'Pessoas RM', 4],
+                ['Tarefas Adm Digital', 'Pessoas Adm Digital', 6],
+                ['Tarefas Afferolab', 'Pessoas Afferolab', 3],
+                ['Tarefas APP Meu RH', 'Pessoas APP Meu RH', 5],
+                ['Tarefas Protheus', 'Pessoas Protheus', 4],
+                ['Tarefas GoodData', 'Pessoas GoodData', 2],
+                ['Tarefas Portal de Compras', 'Pessoas Portal de Compras', 5],
+                ['Tarefas Transmite', 'Pessoas Transmite', 3],
+                ['Tarefas Clock In', 'Pessoas Clock In', 4],
+                ['Tarefas CRM', 'Pessoas CRM', 6],
+                ['Tarefas Prophix', 'Pessoas Prophix', 3],
+                ['Tarefas ESG', 'Pessoas ESG', 2],
+                ['Tarefas Feedz', 'Pessoas Feedz', 3],
+                ['Tarefas Quirons', 'Pessoas Quirons', 4],
+                ['Tarefas Fluig', 'Pessoas Fluig', 5],
+                ['Tarefas Sustentação', 'Pessoas Sustentação', 6],
+                ['Tarefas Atendimento', 'Pessoas Atendimento', 4]
+            ]);
+
+            var options = {
+                width: 1200,
+                height: 800,
+                sankey: {
+                    node: {
+                        colors: ['#a6cee3', '#b2df8a', '#fb9a99'], // Colors for Frentes, Tasks, Pessoas
+                        label: {
+                            fontName: 'Arial',
+                            fontSize: 10,
+                            color: '#333'
+                        },
+                        interactivity: true
+                    },
+                    link: {
+                        colorMode: 'gradient',
+                        colors: ['#a6cee3', '#b2df8a']
+                    }
+                }
+            };
+
+            var chart = new google.visualization.Sankey(document.getElementById('sankey_chart'));
+            chart.draw(data, options);
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="sankey_chart"></div>
+</body>
+</html>

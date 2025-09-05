@@ -1,0 +1,40 @@
+<div *ngIf="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-2xl mx-4 max-h-[80vh] overflow-y-auto">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-bold text-gray-800">Como usar a Matriz de Eisenhower</h3>
+      <button (click)="closeModal.emit()" class="text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="space-y-4 text-gray-700">
+      <p>A Matriz de Eisenhower ajuda você a priorizar tarefas com base em sua urgência e importância, dividindo-as em quatro quadrantes:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+        <div class="bg-red-50 p-4 rounded-lg">
+          <h4 class="font-bold text-red-700">1. Urgente e Importante</h4>
+          <p class="text-sm">Tarefas que exigem ação imediata e são cruciais. Ex: prazos finais, emergências.</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h4 class="font-bold text-blue-700">2. Importante, mas não Urgente</h4>
+          <p class="text-sm">Tarefas que contribuem para objetivos de longo prazo. Ex: planejamento, autocuidado.</p>
+        </div>
+        <div class="bg-yellow-50 p-4 rounded-lg">
+          <h4 class="font-bold text-yellow-700">3. Urgente, mas não Importante</h4>
+          <p class="text-sm">Tarefas que exigem atenção mas não contribuem significativamente. Ex: interrupções.</p>
+        </div>
+        <div class="bg-green-50 p-4 rounded-lg">
+          <h4 class="font-bold text-green-700">4. Nem Urgente, nem Importante</h4>
+          <p class="text-sm">Tarefas que podem ser eliminadas. Ex: distrações, atividades que consomem tempo.</p>
+        </div>
+      </div>
+      <div class="mt-6">
+        <h4 class="font-bold mb-2">Dicas:</h4>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Foque no Quadrante 2 para crescimento pessoal e profissional</li>
+          <li>Minimize tempo gasto no Quadrante 3 (delegue quando possível)</li>
+          <li>Elimine ou reduza drasticamente atividades do Quadrante 4</li>
+          <li>Gerencie crises do Quadrante 1, mas tente evitá-las com planejamento</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

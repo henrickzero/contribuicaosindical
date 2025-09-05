@@ -1,0 +1,23 @@
+.quadrant {
+  transition: all 0.3s ease;
+}
+.quadrant:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.task-item {
+  transition: all 0.2s ease;
+}
+.task-item:hover {
+  transform: scale(1.02);
+}
+.priority-1 { border-left: 4px solid #EF4444; }
+.priority-2 { border-left: 4px solid #3B82F6; }
+.priority-3 { border-left: 4px solid #F59E0B; }
+.priority-4 { border-left: 4px solid #10B981; }
+@media (max-width: 768px) {
+  .matrix-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

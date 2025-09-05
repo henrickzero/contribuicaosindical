@@ -1,0 +1,5 @@
+rootProject.name = "app"
+include 'contract'
+include 'impl'
+include 'integration'
+include 'task'

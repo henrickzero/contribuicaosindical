@@ -1,0 +1,124 @@
+<div class="min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-md">
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+      <!-- Header -->
+      <div class="bg-indigo-600 py-6 px-8 text-center">
+        <h1 class="text-2xl font-bold text-white">Crie sua conta</h1>
+        <p class="text-indigo-100 mt-1">Cadastre-se para começar</p>
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="p-8" #signupFormElement>
+        <!-- Full Name Group -->
+        <div class="relative mb-6">
+          <input
+            type="text"
+            id="fullName"
+            formControlName="fullName"
+            class="input-field peer w-full px-4 py-2 border-b-2 border-gray-300 focus:border-indigo-600 outline-none transition-colors"
+            placeholder=" "
+            required
+          >
+          <label
+            for="fullName"
+            class="absolute left-4 top-2 text-gray-400 peer-focus:text-indigo-600 transition-all duration-200 pointer-events-none"
+            [ngClass]="{'transform -translate-y-6 scale-85 text-indigo-600': signupForm.get('fullName')?.value}"
+          >
+            Nome Completo
+          </label>
+          <div class="absolute right-4 top-2 text-gray-400">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+
+        <!-- Email Group -->
+        <div class="relative mb-6">
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="input-field peer w-full px-4 py-2 border-b-2 border-gray-300 focus:border-indigo-600 outline-none transition-colors"
+            placeholder=" "
+            required
+          >
+          <label
+            for="email"
+            class="absolute left-4 top-2 text-gray-400 peer-focus:text-indigo-600 transition-all duration-200 pointer-events-none"
+            [ngClass]="{'transform -translate-y-6 scale-85 text-indigo-600': signupForm.get('email')?.value}"
+          >
+            Email
+          </label>
+          <div class="absolute right-4 top-2 text-gray-400">
+            <i class="fas fa-envelope"></i>
+          </div>
+        </div>
+
+        <!-- Password Group -->
+        <div class="relative mb-6">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            class="input-field peer w-full px-4 py-2 border-b-2 border-gray-300 focus:border-indigo-600 outline-none transition-colors"
+            placeholder=" "
+            required
+          >
+          <label
+            for="password"
+            class="absolute left-4 top-2 text-gray-400 peer-focus:text-indigo-600 transition-all duration-200 pointer-events-none"
+            [ngClass]="{'transform -translate-y-6 scale-85 text-indigo-600': signupForm.get('password')?.value}"
+          >
+            Senha
+          </label>
+          <div class="absolute right-4 top-2 text-gray-400">
+            <i class="fas fa-lock"></i>
+          </div>
+        </div>
+
+        <!-- Confirm Password Group -->
+        <div class="relative mb-6">
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            class="input-field peer w-full px-4 py-2 border-b-2 border-gray-300 focus:border-indigo-600 outline-none transition-colors"
+            placeholder=" "
+            required
+          >
+          <label
+            for="confirmPassword"
+            class="absolute left-4 top-2 text-gray-400 peer-focus:text-indigo-600 transition-all duration-200 pointer-events-none"
+            [ngClass]="{'transform -translate-y-6 scale-85 text-indigo-600': signupForm.get('confirmPassword')?.value}"
+          >
+            Confirmar Senha
+          </label>
+          <div class="absolute right-4 top-2 text-gray-400">
+            <i class="fas fa-lock"></i>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-md"
+          [disabled]="isLoading"
+        >
+          <span *ngIf="!isLoading && !isSuccess">Cadastrar</span>
+          <span *ngIf="isLoading"><i class="fas fa-spinner fa-spin mr-2"></i>Cadastrando...</span>
+          <span *ngIf="isSuccess"><i class="fas fa-check mr-2"></i>Cadastro bem-sucedido!</span>
+        </button>
+
+        <!-- Login Link -->
+        <div class="text-center text-sm text-gray-600 mt-6">
+          Já tem uma conta?
+          <a routerLink="/login" class="text-indigo-600 font-medium hover:text-indigo-800">Faça login</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-white text-sm mt-6">
+      © 2023 Minha Empresa. Todos os direitos reservados.
+    </div>
+  </div>
+</div>

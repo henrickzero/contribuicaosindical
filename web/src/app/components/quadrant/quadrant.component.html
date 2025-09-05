@@ -1,0 +1,29 @@
+<div class="quadrant rounded-xl shadow-md overflow-hidden" [ngClass]="{'bg-red-50': quadrant === 1, 'bg-blue-50': quadrant === 2, 'bg-yellow-50': quadrant === 3, 'bg-green-50': quadrant === 4}">
+  <div [ngClass]="{'bg-red-100': quadrant === 1, 'bg-blue-100': quadrant === 2, 'bg-yellow-100': quadrant === 3, 'bg-green-100': quadrant === 4}" class="px-4 py-3">
+    <h3 class="quadrant-title font-bold flex items-center" [ngClass]="{'text-red-800': quadrant === 1, 'text-blue-800': quadrant === 2, 'text-yellow-800': quadrant === 3, 'text-green-800': quadrant === 4}">
+      <i class="fas fa-{{icon}} mr-2"></i> {{title}}
+    </h3>
+  </div>
+  <div class="p-4 min-h-[200px]">
+    <p *ngIf="tasks.length === 0" class="text-gray-500 text-sm italic">Nenhuma tarefa neste quadrante</p>
+    <div *ngFor="let task of tasks" class="task-item bg-white rounded-lg p-3 mb-3 shadow-sm" [ngClass]="'priority-' + task.quadrant">
+      <div class="flex justify-between items-start">
+        <div>
+          <h4 class="font-medium" [ngClass]="{'line-through text-gray-400': task.completed, 'text-gray-700': !task.completed}">{{task.title}}</h4>
+          <p *ngIf="task.desc" class="text-sm text-gray-500 mt-1">{{task.desc}}</p>
+          <span *ngIf="task.due" class="text-xs font-medium" [ngClass]="{'text-red-500': isOverdue(task.due), 'text-gray-500': !isOverdue(task.due)}">
+            ({{isOverdue(task.due) ? 'Vencido' : 'Prazo'}}: {{taskService.formatDate(task.due)}})
+          </span>
+        </div>
+        <div class="flex space-x-2">
+          <button (click)="toggleComplete(task.id)" class="complete-btn text-sm" [ngClass]="{'text-green-600': task.completed, 'text-gray-400': !task.completed, 'hover:text-green-600': true}">
+            <i class="fas" [ngClass]="{'fa-check-circle': task.completed, 'fa-circle': !task.completed}"></i>
+          </button>
+          <button (click)="deleteTask(task.id)" class="delete-btn text-sm text-gray-400 hover:text-red-600">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+logging:
+  level:
+    org.springframework.data.convert.CustomConversions: ERROR
+spring:
+  data:
+    mongodb:
+      uri: ${DATABASE_URI}
+      database: ${DATABASE_USER}
+  resources:
+    cache:
+      cachecontrol:
+        no-store: true

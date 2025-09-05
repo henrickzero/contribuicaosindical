@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  width: 100%;
+  height: 100%;
+}
+
+#sankey_chart {
+  width: 100% !important;
+  height: 800px !important;
+}
