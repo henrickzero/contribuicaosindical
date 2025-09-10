@@ -14,7 +14,7 @@ export class SindicatoService {
     return this.http.get<any[]>(`${this.apiUrl}/search?query=${query}`);
   }
 
-  getSindicatoById(id: string): Observable<any> {
+  getSindicatoById(id: string | null): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

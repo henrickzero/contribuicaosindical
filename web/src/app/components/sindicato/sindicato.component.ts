@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SindicatoService } from 'src/app/services/sindicato.service'; // Serviço para sindicatos e empresas
+import { SindicatoService } from 'src/app/service/sindicato.service';  // Serviço para sindicatos e empresas
 
 @Component({
   selector: 'app-sindicato',

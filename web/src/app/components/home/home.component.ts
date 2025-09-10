@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SindicatoService } from 'src/app/services/sindicato.service'; // Assumindo um serviço para buscar sindicatos
+import { SindicatoService } from 'src/app/service/sindicato.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home-header',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  searchQuery: string = '';
+  searchQuery: string | null = '';
   searchResults: any[] = []; // Tipo deve ser ajustado para o modelo de Sindicato
 
   constructor(private sindicatoService: SindicatoService, private router: Router) {}
 
-  searchSindicatos(query: string) {
+  searchSindicatos(query: any) {
     this.searchQuery = query;
     if (query.length >= 3) { // Busca mínima de 3 caracteres para otimizar
       this.sindicatoService.buscarSindicatos(query).subscribe(results => {
