@@ -1,7 +1,6 @@
-import { Component, AfterViewInit, HostListener } from '@angular/core';
+import { Component, AfterViewInit, HostListener, ChangeDetectorRef } from '@angular/core'; // Adicione ChangeDetectorRef se precisar forçar detect
 import * as feather from 'feather-icons';
 import { GlobalService } from 'src/app/service/global.service'; 
-
 
 @Component({
   selector: 'app-header',
@@ -11,11 +10,15 @@ import { GlobalService } from 'src/app/service/global.service';
 export class HeaderComponent implements AfterViewInit {
 
   isMenuOpen = false;
+  isHidden = false;
+  lastScrollTop = 0;
   appName: string;
 
-  constructor(private globalService: GlobalService) {
+  constructor(
+    private globalService: GlobalService,
+    private cdr: ChangeDetectorRef // Para forçar detect changes se necessário
+  ) {
     this.appName = 'Gerenciamento de Oposição Sindical';
-    // Subscribe for dynamic updates
     this.globalService.appName$.subscribe(name => {
       this.appName = name;
     });
@@ -27,29 +30,34 @@ export class HeaderComponent implements AfterViewInit {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
-    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenu = document.querySelector('.mobile-menu');
     const button = document.querySelector('.mobile-menu-button');
     if (mobileMenu && button && !mobileMenu.contains(event.target as Node) && !button.contains(event.target as Node)) {
       this.toggleMobileMenu(false);
     }
   }
 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > this.lastScrollTop && scrollTop > 100) {
+      this.isHidden = true;
+    } else if (scrollTop < this.lastScrollTop || scrollTop < 50) {
+      this.isHidden = false;
+    }
+    this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }
+
   toggleMobileMenu(open?: boolean) {
     this.isMenuOpen = open !== undefined ? open : !this.isMenuOpen;
-    const menu = document.getElementById('mobileMenu');
-    const menuIcon = document.querySelector('i[data-feather="menu"]');
-    const closeIcon = document.querySelector('i[data-feather="x"]');
-    if (menu && menuIcon && closeIcon) {
-      menu.classList.toggle('hidden', !this.isMenuOpen);
-      menuIcon.classList.toggle('hidden', this.isMenuOpen);
-      closeIcon.classList.toggle('hidden', !this.isMenuOpen);
-      this.replaceFeatherIcons();
-    }
+    // Força replace dos ícones após toggle
+    setTimeout(() => this.replaceFeatherIcons(), 0);
+    // Se precisar: this.cdr.detectChanges(); // Só se o menu não atualizar
   }
 
   private replaceFeatherIcons() {
     if (typeof feather !== 'undefined') {
-      feather.replace();
+      feather.replace({ 'stroke-width': 2, width: '24', height: '24' });
     }
   }
 }

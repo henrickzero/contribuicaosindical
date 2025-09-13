@@ -1,4 +1,5 @@
-<nav class="bg-white shadow-lg">
+<nav class="fixed top-0 w-full z-50 bg-white shadow-lg transition-transform duration-300 ease-in-out"
+     [ngClass]="{'-translate-y-full': isHidden, 'translate-y-0': !isHidden}">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <div class="flex items-center">
@@ -23,15 +24,15 @@
         </button>
       </div>
       <div class="-mr-2 flex items-center md:hidden">
-        <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
-          <i data-feather="menu" class="block h-6 w-6"></i>
-          <i data-feather="x" class="hidden h-6 w-6"></i>
+        <button type="button" (click)="toggleMobileMenu()" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+          <i data-feather="menu" [class.hidden]="isMenuOpen" class="block h-6 w-6"></i>
+          <i data-feather="x" [class.hidden]="!isMenuOpen" class="block h-6 w-6"></i>
         </button>
       </div>
     </div>
-    <!-- Mobile Menu Dropdown (adicionado, pois faltava no original) -->
-    <div class="md:hidden hidden mobile-menu" id="mobileMenu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+    <!-- Mobile Menu Dropdown – agora com binding Angular -->
+    <div class="md:hidden mobile-menu bg-white border-t border-gray-200" [class.hidden]="!isMenuOpen">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a routerLink="/" class="block px-3 py-2 text-base font-medium text-gray-900 rounded-md">Início</a>
         <a routerLink="/direitos" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 rounded-md">Direitos</a>
         <a routerLink="/noticias" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 rounded-md">Notícias</a>
