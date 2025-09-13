@@ -7,6 +7,11 @@ import * as feather from 'feather-icons';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements AfterViewInit {
+  currentYear: number;
+  constructor(){
+    this.currentYear = new Date().getFullYear();
+  }
+
   ngAfterViewInit() {
     this.replaceFeatherIcons();
   }
