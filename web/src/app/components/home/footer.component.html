@@ -1,18 +1,53 @@
-<footer class="bg-white py-8">
-  <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-4 md:mb-0">
-        <p class="text-gray-600">&copy; 2025 Gerenciamento de Oposição Sindical. Todos os direitos reservados.</p>
+<footer class="bg-gray-800">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Sobre</h3>
+        <ul class="mt-4 space-y-4">
+          <li><a routerLink="/historia" class="text-base text-gray-300 hover:text-white">História</a></li>
+          <li><a routerLink="/diretoria" class="text-base text-gray-300 hover:text-white">Diretoria</a></li>
+          <li><a routerLink="/estatuto" class="text-base text-gray-300 hover:text-white">Estatuto</a></li>
+        </ul>
       </div>
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Serviços</h3>
+        <ul class="mt-4 space-y-4">
+          <li><a routerLink="/assessoria" class="text-base text-gray-300 hover:text-white">Assessoria Jurídica</a></li>
+          <li><a routerLink="/cursos" class="text-base text-gray-300 hover:text-white">Cursos</a></li>
+          <li><a routerLink="/beneficios" class="text-base text-gray-300 hover:text-white">Benefícios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Links Úteis</h3>
+        <ul class="mt-4 space-y-4">
+          <li><a href="https://www.gov.br/trabalho/pt-br" target="_blank" class="text-base text-gray-300 hover:text-white">CLT</a></li>
+          <li><a href="https://www.gov.br/trabalho/pt-br" target="_blank" class="text-base text-gray-300 hover:text-white">Ministério do Trabalho</a></li>
+          <li><a routerLink="/convencoes" class="text-base text-gray-300 hover:text-white">Convenções Coletivas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Contato</h3>
+        <ul class="mt-4 space-y-4">
+          <li class="text-base text-gray-300">Rua dos Trabalhadores, 123</li>
+          <li class="text-base text-gray-300">contato@sindicato.org</li>
+          <li class="text-base text-gray-300">(11) 1234-5678</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-700 pt-8 flex justify-between">
+      <p class="text-base text-gray-400">&copy; 2023 Sindicato dos Trabalhadores. Todos os direitos reservados.</p>
       <div class="flex space-x-6">
-        <a href="#" class="text-gray-500 hover:text-indigo-500 transition">
-          <i class="fab fa-twitter text-xl"></i>
+        <a routerLink="/facebook" class="text-gray-400 hover:text-white">
+          <i data-feather="facebook" class="h-6 w-6"></i>
         </a>
-        <a href="#" class="text-gray-500 hover:text-indigo-500 transition">
-          <i class="fab fa-github text-xl"></i>
+        <a routerLink="/instagram" class="text-gray-400 hover:text-white">
+          <i data-feather="instagram" class="h-6 w-6"></i>
         </a>
-        <a href="#" class="text-gray-500 hover:text-indigo-500 transition">
-          <i class="fab fa-linkedin text-xl"></i>
+        <a routerLink="/twitter" class="text-gray-400 hover:text-white">
+          <i data-feather="twitter" class="h-6 w-6"></i>
+        </a>
+        <a routerLink="/youtube" class="text-gray-400 hover:text-white">
+          <i data-feather="youtube" class="h-6 w-6"></i>
         </a>
       </div>
     </div>

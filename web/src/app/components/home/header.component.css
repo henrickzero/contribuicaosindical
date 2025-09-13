@@ -1,0 +1,4 @@
+/* Estilos custom do header (se necessário; Tailwind cobre a maioria) */
+.mobile-menu-button:focus {
+  outline: none;
+}

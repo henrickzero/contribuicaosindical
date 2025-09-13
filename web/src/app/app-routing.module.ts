@@ -9,7 +9,7 @@ import { SindicatoComponent } from './components/sindicato/sindicato.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent},
   { path: 'sindicato/:id', component: SindicatoComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },

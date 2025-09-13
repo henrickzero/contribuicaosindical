@@ -1,8 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import * as feather from 'feather-icons';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  // styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css']
 })
-export class FooterComponent {}
+export class FooterComponent implements AfterViewInit {
+  ngAfterViewInit() {
+    this.replaceFeatherIcons();
+  }
+
+  private replaceFeatherIcons() {
+    if (typeof feather !== 'undefined') {
+      feather.replace();
+    }
+  }
+}

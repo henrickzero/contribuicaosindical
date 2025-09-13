@@ -1,5 +1,6 @@
 // src/app/app.component.ts
 import { Component, AfterViewInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',

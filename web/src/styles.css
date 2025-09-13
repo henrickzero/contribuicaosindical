@@ -1,58 +1,14 @@
-@import '@fortawesome/fontawesome-free/css/all.css';
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Estilos custom do HTML original – movidos para global */
+.hero-pattern {
+  background-image: radial-gradient(#d5000020 1px, transparent 1px);
+  background-size: 20px 20px;
+}
 
-.success-snackbar {
-    color: #fff;
-    background-color: #4caf50; /* Verde */
-  }
-  
-  .error-snackbar {
-    color: #fff;
-    background-color: #f44336; /* Vermelho */
-  }
-  
-  .info-snackbar {
-    color: #fff;
-    background-color: #2196f3; /* Azul */
-  }
-  
-  .warning-snackbar {
-    color: #fff;
-    background-color: #ff9800; /* Laranja */
-  }
-
-
- /* src/styles.css */
-.spinner-overlay {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-    top: 0;
-    left: 0;
-  }
-  
-  .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border-left-color: #09f;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}

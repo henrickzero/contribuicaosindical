@@ -5,7 +5,7 @@ import { SindicatoService } from 'src/app/service/sindicato.service';  // ServiÃ
 @Component({
   selector: 'app-sindicato',
   templateUrl: './sindicato.component.html',
-  // styleUrls: ['./sindicato.component.css']
+  styleUrls: ['./sindicato.component.css']
 })
 export class SindicatoComponent implements OnInit {
   sindicato: any = {}; // Tipo deve ser ajustado
@@ -14,10 +14,10 @@ export class SindicatoComponent implements OnInit {
   constructor(private route: ActivatedRoute, private sindicatoService: SindicatoService) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.sindicatoService.getSindicatoById(id).subscribe(sindicato => {
-      this.sindicato = sindicato;
-      this.empresas = sindicato.empresas || []; // Assumindo que o sindicato retorna lista de empresas
-    });
+    // const id = this.route.snapshot.paramMap.get('id');
+    // this.sindicatoService.getSindicatoById(id).subscribe(sindicato => {
+    //   this.sindicato = sindicato;
+    //   this.empresas = sindicato.empresas || []; // Assumindo que o sindicato retorna lista de empresas
+    // });
   }
 }
