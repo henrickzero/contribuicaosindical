@@ -8,17 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HelpModalComponent } from './components/help-modal/help.modal.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HomeComponent } from './components/home/home.component'; 
 import { HeaderComponent } from './components/home/header.component'; 
 import { FooterComponent } from './components/home/footer.component'; 
-import { VisualizationCardComponent } from './components/home/visualization-card.component'; 
 import { LoginComponent } from './components/login/login.component'; 
 import { SignupComponent } from './components/signup/signup.component'; 
 import { AuthInterceptor } from './guards/auth-interceptor.interceptor'; 
 import { SindicatoComponent } from './components/sindicato/sindicato.component'; 
-
-
 
 
 @NgModule({
@@ -28,8 +24,6 @@ import { SindicatoComponent } from './components/sindicato/sindicato.component';
     HeaderComponent,
     FooterComponent,
     HelpModalComponent,
-    StatisticsComponent,
-    VisualizationCardComponent,
     LoginComponent,
     SignupComponent,
     SindicatoComponent
