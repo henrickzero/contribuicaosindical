@@ -3,9 +3,12 @@ import * as AOS from 'aos';
 import * as feather from 'feather-icons';
 
 interface Company {
+  id: string;
+  idSindicato: string;
   name: string;
-  category: string;
-  workers: number;
+  nameSindicato: string;
+  municipio: string;
+  uf: string;
   image: string;
 }
 
@@ -16,15 +19,15 @@ interface Company {
 })
 export class HomeComponent implements AfterViewInit {
   companies: Company[] = [
-    { name: "Indústria Moderna", category: "Manufatura", workers: 250, image: "http://static.photos/industry/640x360/1" },
-    { name: "Tecnologia Avançada", category: "TI", workers: 180, image: "http://static.photos/technology/640x360/2" },
-    { name: "Construções Forte", category: "Construção", workers: 320, image: "http://static.photos/construction/640x360/3" },
-    { name: "Comércio Justo", category: "Varejo", workers: 150, image: "http://static.photos/retail/640x360/4" },
-    { name: "Serviços Integrados", category: "Serviços", workers: 210, image: "http://static.photos/office/640x360/5" },
-    { name: "Alimentos Saudáveis", category: "Alimentação", workers: 190, image: "http://static.photos/food/640x360/6" },
-    { name: "Logística Rápida", category: "Transporte", workers: 275, image: "http://static.photos/automotive/640x360/7" },
-    { name: "Educação do Futuro", category: "Educação", workers: 130, image: "http://static.photos/education/640x360/8" },
-    { name: "Saúde Integral", category: "Saúde", workers: 240, image: "http://static.photos/medical/640x360/9" }
+    { id: "dataprev", idSindicato: "sindpdpb", name: "Dataprev", nameSindicato: "SINDPDPB", municipio: "João Pessoa", uf: "PB", image: "http://static.photos/industry/640x360/1" },
+    { id: "serpro", idSindicato: "sindpdpb", name: "Serpro", nameSindicato: "SINDPDPB", municipio: "João Pessoa", uf: "PB", image: "http://static.photos/technology/640x360/2" },
+    { id: "soluti", idSindicato: "sindpdpb", name: "Soluti", nameSindicato: "SINDPDPB", municipio: "João Pessoa", uf: "PB", image: "http://static.photos/construction/640x360/3" },
+    { id: "casas-pio", idSindicato: "sindpdpb", name: "Casas Pio", nameSindicato: "SINDPDPB", municipio: "João Pessoa", uf: "PB", image: "http://static.photos/retail/640x360/4" },
+    { id: "casas-pedro", idSindicato: "sindpdrj", name: "Casas Pedro", nameSindicato: "SINDPDRJ", municipio: "Rio de Janeiro", uf: "RJ", image: "http://static.photos/office/640x360/5" },
+    { id: "serpro", idSindicato: "sindpdrj", name: "Serpro", nameSindicato: "SINDPDRJ", municipio: "Rio de Janeiro", uf: "RJ", image: "http://static.photos/food/640x360/6" },
+    { id: "dataprev", idSindicato: "sindpdrj", name: "Logística Rápida", nameSindicato: "SINDPDRJ", municipio: "Rio de Janeiro", uf: "RJ", image: "http://static.photos/automotive/640x360/7" },
+    { id: "casa-pio", idSindicato: "sindpdsc", name: "Casas Pio", nameSindicato: "SINDPDSC", municipio: "Florianopolis", uf: "SC", image: "http://static.photos/education/640x360/8" },
+    { id: "soluti", idSindicato: "sindpdsc", name: "Saúde Integral", nameSindicato: "SINDPDSC", municipio: "Florianopolis", uf: "SC", image: "http://static.photos/medical/640x360/9" }
   ];
 
   filteredCompanies: Company[] = [...this.companies];
@@ -42,7 +45,7 @@ export class HomeComponent implements AfterViewInit {
   filterCompanies() {
     this.filteredCompanies = this.companies.filter(company =>
       company.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      company.category.toLowerCase().includes(this.searchTerm.toLowerCase())
+      company.nameSindicato.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 
