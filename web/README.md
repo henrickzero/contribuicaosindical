@@ -34,6 +34,13 @@ https://materialui.co/icons
 
 ng generate component em-construcao
 
+npm install
+
+#npm install -D tailwindcss postcss autoprefixer
+
+#npx tailwindcss init -p
+
+
 ng serve
 
 ng build
@@ -47,3 +54,6 @@ https://grok.com/chat/63650cc9-0e8a-427b-87e9-3e6811fbf110
 
 
 ng build --configuration production
+
+
+
