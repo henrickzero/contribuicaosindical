@@ -1,14 +1,68 @@
-<main class="flex-grow container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">Empresas do Sindicato: {{ sindicato.nome }}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let empresa of empresas" class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-2">{{ empresa.nome }}</h3>
-            <p class="text-gray-600">CNPJ: {{ empresa.cnpj }}</p>
-            <p class="text-gray-600">Endereço: {{ empresa.endereco }}</p>
-            <!-- Adicione mais detalhes ou ações, como enviar carta -->
+<div class="hero-pattern">
+  <!-- Hero Section -->
+  <!-- Companies Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up">
+        SINDPDPB
+      </h2>
+      <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4" data-aos="fade-up">
+        Empresas afiliadas
+      </p>
+    </div>
+    <!-- Search Box -->
+    <div class="max-w-md mx-auto mb-12" data-aos="fade-up">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <i data-feather="search" class="h-5 w-5 text-gray-400"></i>
         </div>
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterCompanies()"
+               class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm"
+               placeholder="Pesquisar empresas...">
+      </div>
     </div>
-    <div *ngIf="empresas.length === 0" class="text-center text-gray-500 mt-8">
-        Nenhuma empresa cadastrada neste sindicato.
+    <!-- Companies Grid -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div *ngFor="let company of filteredCompanies" class="company-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+           data-aos="fade-up">
+        <div class="h-48 bg-gray-200 overflow-hidden">
+          <img [src]="company.image" [alt]="company.name" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-900">{{ company.name }}</h3>
+          <div class="mt-2 flex items-center">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+              {{ company.nameSindicato }}
+            </span>
+          </div>
+          <div class="mt-4 flex items-center">
+            <i data-feather="map-pin" class="h-4 w-4 text-gray-500 mr-1"></i>
+            <span class="text-sm text-gray-500">{{ company.municipio }} - {{ company.uf }} </span>
+          </div>
+        </div>
+      </div>
     </div>
-</main>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="bg-primary">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl" data-aos="fade-up">
+        <span class="block">Precisa de ajuda?</span>
+        <span class="block text-accent">Fale com nosso suporte</span>
+      </h2>
+      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <div class="inline-flex rounded-md shadow">
+          <a routerLink="/contato" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+            <i data-feather="phone" class="mr-2"></i> Contato
+          </a>
+        </div>
+        <div class="ml-3 inline-flex rounded-md shadow">
+          <a routerLink="/email" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-opacity-90">
+            <i data-feather="mail" class="mr-2"></i> E-mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
